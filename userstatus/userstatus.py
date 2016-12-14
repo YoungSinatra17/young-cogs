@@ -8,8 +8,7 @@ class UserStatus:
 
     def __init__(self, bot):
         self.bot = bot
-
-
+        
     @commands.group(pass_context=True, no_pm=True)
     async def users(self, ctx):
         """Shows the status's of the users in your server."""
@@ -22,9 +21,9 @@ class UserStatus:
         server = ctx.message.server
         e = [e.name for e in server.members if not e.bot and e.status == discord.Status.dnd]
         msg = "**Users with status of Dnd:**\n<:vpDnD:236744731088912384>{0}".format(("\n<:vpDnD:236744731088912384>".join(e)))
-        for page in pagify(msg, [" "], shorten_by=16):
-            await self.bot.say(page.lstrip(" "))
-            return
+        something = pagify(msg, ["\n"])
+        for page in something:
+            await self.bot.say(page)
 
     @users.command(pass_context=True)
     async def online(self, ctx):
@@ -32,9 +31,9 @@ class UserStatus:
         server = ctx.message.server
         e = [e.name for e in server.members if not e.bot and e.status == discord.Status.online]
         msg = "**Users with status of Online:**\n<:vpOnline:212789758110334977>{0}".format(("\n<:vpOnline:212789758110334977>".join(e)))
-        for page in pagify(msg, [" "], shorten_by=16):
-            await self.bot.say(page.lstrip(" "))
-            return
+        something = pagify(msg, ["\n"])
+        for page in something:
+            await self.bot.say(page)
 
     @users.command(pass_context=True)
     async def idle(self, ctx):
@@ -42,9 +41,9 @@ class UserStatus:
         server = ctx.message.server
         e = [e.name for e in server.members if not e.bot and e.status == discord.Status.idle]
         msg = "**Users with status of Idle:**\n<:vpAway:212789859071426561>{0}".format(("\n<:vpAway:212789859071426561>".join(e)))
-        for page in pagify(msg, [" "], shorten_by=16):
-            await self.bot.say(page.lstrip(" "))
-            return
+        something = pagify(msg, ["\n"])
+        for page in something:
+            await self.bot.say(page)
 
     @users.command(pass_context=True)
     async def offline(self, ctx):
@@ -52,10 +51,10 @@ class UserStatus:
         server = ctx.message.server
         e = [e.name for e in server.members if not e.bot and e.status == discord.Status.offline]
         msg = "**Users with status of Offline:**\n<:vpOffline:212790005943369728>{0}".format(("\n<:vpOffline:212790005943369728>".join(e)))
-        for page in pagify(msg, [" "], shorten_by=16):
-            await self.bot.say(page.lstrip(" "))
-            return
-
+        something = pagify(msg, ["\n"])
+        for page in something:
+            await self.bot.say(page)
+        
 def setup(bot):
     n = UserStatus(bot)
     bot.add_cog(n)
