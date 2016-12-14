@@ -1,0 +1,8 @@
+{
+    "AUTHOR" : "Young Sinatra",
+    "SHORT" : "User Status's!",
+    "DESCRIPTION" : "Shows user status's in your server.",
+    "DISABLED" : false,
+    "NAME" : "UserStatus",
+    "INSTALL_MSG" : "`[p]users` to begin.\nFor these commands to format correctly your bot must me in this server! <https://discord.gg/MhEss4t>"
+}
