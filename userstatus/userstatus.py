@@ -1,4 +1,5 @@
 import discord
+from .utils import checks
 from discord.ext import commands
 from __main__ import send_cmd_help
 from cogs.utils.chat_formatting import pagify
@@ -10,6 +11,7 @@ class UserStatus:
         self.bot = bot
         
     @commands.group(pass_context=True, no_pm=True)
+    @checks.admin_or_permissions(administrator=True)
     async def users(self, ctx):
         """Shows the status's of the users in your server."""
         if ctx.invoked_subcommand is None:
